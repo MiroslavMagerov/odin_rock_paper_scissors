@@ -20,10 +20,6 @@ function game() {
             console.log("Tie.");
         }
 
-        if (playerScore == 5 || computerScore == 5) {
-            winner = true;
-        }
-
     } while (!winner);
 
     console.log (playerScore > computerScore ? "¡Player won!" : "¡Computer won!")
