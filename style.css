@@ -1,4 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     text-align: center;
     background-color: rgb(125, 183, 125);
+    padding: 0 17.5%;
+}
+
+.article_images {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row nowrap;
+}
+
+.article_images button {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.article_images button img {
+    max-width: 100%;
+    width: 100px;
+}
+
+#section_round {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+#section_round article {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+#section_score {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#section_score h2 {
+    width: 100%;
+}
+
+#section_score article {
+    width: 50%;
 }
