@@ -5,17 +5,21 @@
 body {
     text-align: center;
     background-color: rgb(125, 183, 125);
-    padding: 0 17.5%;
+    padding: 0 17%;
 }
 
-.article_images {
+#section_playable_buttons {
+    background-color: white;
+}
+
+.article_playable_buttons {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-flow: row nowrap;
 }
 
-.article_images button {
+.article_playable_buttons button {
     display: inline-block;
     padding: 0;
     border: none;
@@ -23,21 +27,30 @@ body {
     cursor: pointer;
 }
 
-.article_images button img {
+.article_playable_buttons button img {
     max-width: 100%;
-    width: 100px;
+    width: 150px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 #section_round {
     display: flex;
     justify-content: space-between;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
+    align-items: center;
 }
 
-#section_round article {
+.article_played_option {
     display: flex;
     justify-content: center;
+    flex-flow: row wrap;
     width: 50%;
+}
+
+.article_played_option h3 {
+    width: 100%;
 }
 
 #section_score {

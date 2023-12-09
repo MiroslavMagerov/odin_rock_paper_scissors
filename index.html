@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rock, paper, scissor</title>
-        <!-- <script defer src="script.js"></script> -->
+        <script defer src="scriptUI.js"></script>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -19,40 +19,38 @@
         <main>
             <section id="section_playable_buttons">
                 <h3>Click the image to play!</h3>
-                <article class="article_images">
-                    <button>
+                <article class="article_playable_buttons">
+                    <button class="playable_button" value="rock">
                         <img alt="Rock image" src="images/rock.png">
                     </button>
 
-                    <button>
+                    <button class="playable_button" value="paper">
                         <img alt="Paper image" src="images/paper.png">
                     </button>
 
-                    <button>
+                    <button class="playable_button" value="scissor">
                         <img alt="Scissor image" src="images/scissors.png">
                     </button>
                 </article>
             </section>
 
             <section id="section_round">
-                <article>
+                <article id="player_played_option" class="article_played_option">
                     <h3>Your play</h3>
                 </article>
-
-                <article>
+                <article id="computer_played_option" class="article_played_option">
                     <h3>Computer play</h3>
                 </article>
             </section>
 
             <section id="section_score">
-                <h2></h2>
                 <article>
                     <h3>Your score</h3>
-                    <h4>0</h4>
+                    <h4 id="user_score">0</h4>
                 </article>
                 <article>
                     <h3>Computer score</h3>
-                    <h4>0</h4>
+                    <h4 id="computer_score">0</h4>
                 </article>
             </section>
         </main>
