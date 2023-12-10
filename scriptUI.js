@@ -9,9 +9,26 @@ let computerChoice, playerChoice, playerWonRound, computerScore = 0, playerScore
 
 playableButtons.forEach(button => {
     button.addEventListener('click', () => {
-        playRound(button);
+        game(button);
     })
 });
+
+
+
+function game(button) {
+    if (playerScore < 5 && computerScore < 5) {
+        playRound(button);
+
+        if (playerScore == 5 || computerScore == 5) {
+            createRestartButton();
+            gameWinnerUpdate();
+            const restartButton = document.querySelector('#restart_button');
+            restartButton.addEventListener('click', () => {
+                restartGame();
+            })
+        }
+    }
+}
 
 function playRound(button) {
     playerChoice = getPlayerChoice(button);
@@ -23,7 +40,7 @@ function playRound(button) {
     }
 
     updatePlayedImages(playerChoice, computerChoice);
-    updateWinnerDisplay(getWinner(playerChoice, computerChoice), playerChoice, computerChoice);
+    updateRoundWinnerDisplay(getWinner(playerChoice, computerChoice), playerChoice, computerChoice);
 }
 
 function getPlayerChoice(button) {
@@ -123,7 +140,7 @@ function updatePlayedImages(playerChoice, computerChoice) {
     computerPlayedOptionArticle.appendChild(computerImage);
 }
 
-function updateWinnerDisplay(playerWon, playerChoice, computerChoice) {
+function updateRoundWinnerDisplay(playerWon, playerChoice, computerChoice) {
     const existentDisplay = sectionWinnerDisplay.querySelector("h2");
     if (existentDisplay) {
         existentDisplay.remove();
@@ -147,4 +164,61 @@ function updateWinnerDisplay(playerWon, playerChoice, computerChoice) {
     }
 
     sectionWinnerDisplay.append(winnerDisplay);
+}
+
+function gameWinnerUpdate() {
+    const finalWinner = sectionWinnerDisplay.querySelector("h2");
+
+    if (playerScore == 5) {
+        finalWinner.style.color = "green";
+        finalWinner.textContent = "CONGRATULATIONS, YOU WON THE GAME! 🥳";
+    }
+    else if (computerScore == 5) {
+        finalWinner.style.color = "red";
+        finalWinner.textContent = "OOOOH, YOU LOST THE GAME 😢";
+    }
+}
+
+function createRestartButton() {
+    button = document.createElement("button");
+    button.setAttribute("id", "restart_button");
+    button.style.padding = "30px 105px";
+    button.style.fontSize = "1.5em";
+    button.style.borderRadius = "15px";
+    button.style.border = "2px solid black";
+    button.style.backgroundColor = "yellow";
+    button.style.fontWeight = "bolder";
+    button.textContent = "PLAY AGAIN";
+    button.style.cursor = "pointer";
+
+    const sectionFinalWinner = document.querySelector("#restart_button_section");
+    sectionFinalWinner.append(button);
+}
+
+function deleteRestartButton() {
+    const finalWinnerButton = document.querySelector("#restart_button");
+    if (finalWinnerButton) {
+        finalWinnerButton.remove();
+    }
+}
+
+function restartGame() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreElement.textContent = "0";
+    computerScoreElement.textContent = "0";
+    existentPlayerImage = playerPlayedOptionArticle.querySelector("img");
+    if (existentPlayerImage) {
+        existentPlayerImage.remove();
+    }
+    existentComputerImage = computerPlayedOptionArticle.querySelector("img");
+    if (existentComputerImage) {
+        existentComputerImage.remove();
+    }
+    const existentDisplay = sectionWinnerDisplay.querySelector("h2");
+    if (existentDisplay) {
+        existentDisplay.remove();
+    }
+
+    deleteRestartButton();
 }
