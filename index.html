@@ -17,9 +17,9 @@
         </header>
 
         <main>
-            <section id="section_playable_buttons">
+            <section id="section_playable_buttons" class="padding_15">
                 <h3>Click the image to play!</h3>
-                <article class="article_playable_buttons">
+                <article class="article_playable_buttons maxWidth_1000">
                     <button class="playable_button" value="rock">
                         <img alt="Rock image" src="images/rock.png">
                     </button>
@@ -32,31 +32,35 @@
                         <img alt="Scissor image" src="images/scissors.png">
                     </button>
                 </article>
+                <h3>First to get 5 points wins!</h3>
             </section>
 
-            <section id="section_round">
-                <article id="player_played_option" class="article_played_option">
+            <section id="section_round" class="padding_15">
+                <article id="player_played_option" class="article_played_option maxWidth_500">
                     <h3>Your play</h3>
                 </article>
-                <article id="computer_played_option" class="article_played_option">
+                <article id="computer_played_option" class="article_played_option maxWidth_500">
                     <h3>Computer play</h3>
                 </article>
             </section>
 
-            <section id="section_score">
-                <article>
+            <section id="section_score" class="padding_15">
+                <article class="maxWidth_500">
                     <h3>Your score</h3>
-                    <h4 id="user_score">0</h4>
+                    <h3 id="user_score">0</h3>
                 </article>
-                <article>
+                <article class="maxWidth_500">
                     <h3>Computer score</h3>
-                    <h4 id="computer_score">0</h4>
+                    <h3 id="computer_score">0</h3>
                 </article>
             </section>
+
+            <section id="winner_section"></section>
         </main>
 
         <footer>
-
+            <p>Miroslav Magerov Copyright © 2023</p>
+            <p>Icons downloaded in <a href="https://www.vecteezy.com/">Vecteezy.com</a></p>
         </footer>
     </body>
 </html>

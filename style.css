@@ -5,11 +5,35 @@
 body {
     text-align: center;
     background-color: rgb(125, 183, 125);
-    padding: 0 17%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-height: 100vh;
+}
+
+h2, h3 {
+    font-size: 1.5em;
+}
+
+.padding_15 {
+    padding: 0 15%;
+}
+
+.maxWidth_1000 {
+    max-width: 1000px;
+}
+
+.maxWidth_500 {
+    max-width: 500px;
+    width: 50%;
 }
 
 #section_playable_buttons {
-    background-color: white;
+    background-color: rgb(149, 255, 239);
+    padding: 2.5px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
 }
 
 .article_playable_buttons {
@@ -17,6 +41,12 @@ body {
     justify-content: space-around;
     align-items: center;
     flex-flow: row nowrap;
+    width: 100%;
+}
+
+.article_playable_buttons h3 {
+    width: 100%;
+    text-align: center;
 }
 
 .article_playable_buttons button {
@@ -25,28 +55,32 @@ body {
     border: none;
     background: none;
     cursor: pointer;
+    background: white;
+    border-radius: 10px;
 }
 
 .article_playable_buttons button img {
-    max-width: 100%;
-    width: 150px;
-    border: 1px solid black;
+    display: block;
+    width: 100%;
+    max-width: 170px;
+    border: 3px solid black;
     border-radius: 10px;
     padding: 20px;
 }
 
 #section_round {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-flow: row nowrap;
     align-items: center;
+    gap: 5%;
+    margin-top: 30px;
 }
 
 .article_played_option {
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
-    width: 50%;
 }
 
 .article_played_option h3 {
@@ -55,13 +89,43 @@ body {
 
 #section_score {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
 }
 
 #section_score h2 {
     width: 100%;
 }
 
-#section_score article {
-    width: 50%;
+#winner_section {
+    height: 150px;
+    background-color: rgb(149, 255, 239);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    margin-top: 30px;
+    color: rgb(35, 146, 35);
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin-top: auto;
+    justify-self: flex-end;
+}
+
+footer p {
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+footer p a {
+    text-decoration: none;
+    color: inherit;
+    font-style: italic;
 }

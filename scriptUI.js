@@ -3,6 +3,7 @@ const playerScoreElement = document.querySelector('#user_score');
 const computerScoreElement = document.querySelector('#computer_score');
 const playerPlayedOptionArticle = document.querySelector('#player_played_option');
 const computerPlayedOptionArticle = document.querySelector('#computer_played_option');
+const sectionWinnerDisplay = document.querySelector('#winner_section');
 
 let computerChoice, playerChoice, playerWonRound, computerScore = 0, playerScore = 0;
 
@@ -22,6 +23,7 @@ function playRound(button) {
     }
 
     updatePlayedImages(playerChoice, computerChoice);
+    updateWinnerDisplay(getWinner(playerChoice, computerChoice), playerChoice, computerChoice);
 }
 
 function getPlayerChoice(button) {
@@ -76,10 +78,10 @@ function getWinner(userChoice, computerChoice) {
 
         case "scissors":
             if (computerChoice === "paper") {
-                return false;
+                return true;
             }
             else {
-                return true;
+                return false;
             }
     }
 }
@@ -95,7 +97,12 @@ function updateWinner(playerWon) {
     }
 }
 
-function updatePlayedImages(playerChoice, computerChoice) {   
+function updatePlayedImages(playerChoice, computerChoice) {
+    const existentPlayerImage = playerPlayedOptionArticle.querySelector("img");
+    if (existentPlayerImage) {
+        existentPlayerImage.remove();
+    }
+    
     let playerImage = document.createElement("img");
     playerImage.setAttribute("src", "images/" + playerChoice + ".png");
     playerImage.style.width = "75px";
@@ -103,10 +110,41 @@ function updatePlayedImages(playerChoice, computerChoice) {
     playerImage.style.borderRadius = "12px";
     playerPlayedOptionArticle.appendChild(playerImage);
 
+    const existentComputerImage = computerPlayedOptionArticle.querySelector("img");
+    if (existentComputerImage) {
+        existentComputerImage.remove();
+    }
+
     let computerImage = document.createElement("img");
     computerImage.setAttribute("src", "images/" + computerChoice + ".png");
     computerImage.style.width = "75px";
     computerImage.style.border = "1px solid black";
     computerImage.style.borderRadius = "12px";
-    playerPlayedOptionArticle.appendChild(computerImage);
+    computerPlayedOptionArticle.appendChild(computerImage);
+}
+
+function updateWinnerDisplay(playerWon, playerChoice, computerChoice) {
+    const existentDisplay = sectionWinnerDisplay.querySelector("h2");
+    if (existentDisplay) {
+        existentDisplay.remove();
+    }
+    
+    const winnerDisplay = document.createElement("h2");
+    
+    if (playerChoice != computerChoice) {
+        if (playerWon) {
+            winnerDisplay.style.color = "green";
+            winnerDisplay.textContent = "PLAYER WON THIS ROUND!"
+        }
+        else {
+            winnerDisplay.style.color = "red";
+            winnerDisplay.textContent = "COMPUTER WON THIS ROUND!";
+        }
+    }
+    else {
+        winnerDisplay.style.color = "black";
+        winnerDisplay.textContent = "IT'S A TIE!";
+    }
+
+    sectionWinnerDisplay.append(winnerDisplay);
 }
